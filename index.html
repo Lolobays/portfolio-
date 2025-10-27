@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaun Ewards C. Dela Rosa - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #1a1a2e;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            margin-top: 0;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 5px solid #00d4aa;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #00d4aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #00d4aa;
+        }
+
+        h3 {
+            color: #00d4aa;
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .objective {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #00d4aa;
+        }
+
+        .education-timeline {
+            margin-top: 3rem;
+        }
+
+        .education-item {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
+        .education-item .year {
+            color: #00d4aa;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .education-item .school {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        .education-item .degree {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .award {
+            background: linear-gradient(135deg, #00d4aa 0%, #0f3460 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skill-card {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d4aa;
+            font-weight: bold;
+        }
+
+        .experience-timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .experience-item {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-item .job-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #00d4aa;
+        }
+
+        .experience-item .company {
+            color: #0f3460;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .experience-item .duration {
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cert-card {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            color: #00d4aa;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cert-issuer {
+            color: #0f3460;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .cert-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .cert-instructor {
+            color: #888;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #00d4aa 0%, #0f3460 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
+        }
+
+        #contact {
+            background: #0d1b2a;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: #00d4aa;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card a:hover {
+            color: #00ffcc;
+        }
+
+        footer {
+            background: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .certifications-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Shaun Dela Rosa</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <img src="Images/me.png" alt="Shaun Ewards C. Dela Rosa" class="profile-image">
+            <h1>Shaun Ewards C. Dela Rosa</h1>
+            <p>IT Graduate | Hardware & Technical Support Specialist</p>
+            <div>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+                <a href="#education" class="cta-button">View Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="objective">
+                <h3>Career Objective</h3>
+                <p>Dedicated and hardworking IT graduate seeking a position in hardware and technical support to gain valuable professional experience. Committed to applying strong troubleshooting abilities, technical knowledge, and attention to detail to ensure optimal system performance and contribute positively to the organization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-timeline">
+            <div class="education-item">
+                <div class="year">2022 – 2024</div>
+                <div class="school">STI College Caloocan</div>
+                <div class="degree">Bachelor of Science in Information Technology</div>
+                <div class="location">Caloocan City</div>
+                <span class="award">President's Lister, 2021-2022</span>
+            </div>
+
+            <div class="education-item">
+                <div class="year">2020 – 2022</div>
+                <div class="school">STI College Caloocan</div>
+                <div class="degree">Information and Communication Technology - Senior High School</div>
+                <div class="location">Caloocan City</div>
+                <span class="award">With Honor, 2020-2022</span>
+            </div>
+
+            <div class="education-item">
+                <div class="year">2016 – 2020</div>
+                <div class="school">Divine Mercy College Foundation INC.</div>
+                <div class="degree">Junior High School</div>
+                <div class="location">Caloocan City</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>💻 Computer Literacy</h3>
+                <ul>
+                    <li>Microsoft Word</li>
+                    <li>Microsoft Excel</li>
+                    <li>Microsoft PowerPoint</li>
+                    <li>Canva Design</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🔧 Troubleshooting</h3>
+                <ul>
+                    <li>Hardware & Software Diagnostics</li>
+                    <li>Operating System Installation</li>
+                    <li>PC Problem Resolution</li>
+                    <li>Printer Setup & Maintenance</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>👨‍💻 Programming</h3>
+                <ul>
+                    <li>Java Basics</li>
+                    <li>C# Programming</li>
+                    <li>Game Development Concepts</li>
+                    <li>Simple Project Development</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>⚡ Multitasking</h3>
+                <ul>
+                    <li>Efficient Task Management</li>
+                    <li>Handling Multiple Priorities</li>
+                    <li>Attention to Detail</li>
+                    <li>Time Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-title">Freelance Encoder</div>
+                <div class="duration">2020 – Present</div>
+                <p>Providing professional data encoding services, ensuring accuracy and timely delivery for various clients.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Encoder</div>
+                <div class="company">DonDon's Fruits and Vegetable Supplies</div>
+                <div class="duration">2024</div>
+                <p>Managed data entry tasks, maintained accurate records, and supported inventory management operations.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Barista</div>
+                <div class="company">PRIYANKA SIZZLERS</div>
+                <div class="duration">2022</div>
+                <p>Delivered excellent customer service, prepared beverages, and managed orders in a fast-paced environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certifications-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🎓</div>
+                <h3>Systems Administration</h3>
+                <p class="cert-issuer">Oracle Academy</p>
+                <p class="cert-date">Completed: June 24, 2023</p>
+                <p class="cert-instructor">Instructor: Beronika Peña, ICT Courseware Development Head</p>
+                <a href="Certificates/System-Administration.pdf" target="_blank" class="download-btn">📥 View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">☕</div>
+                <h3>Java Fundamentals</h3>
+                <p class="cert-issuer">Oracle Academy</p>
+                <p class="cert-date">Completed: June 24, 2023</p>
+                <p class="cert-instructor">Instructor: Beronika Peña, Oracle Academy Instructor</p>
+                <a href="Certificates/Java-Fundamentals.pdf" target="_blank" class="download-btn">📥 View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🎓</div>
+                <h3>Skills to Succeed Academy</h3>
+                <p class="cert-issuer">Accenture</p>
+                <p class="cert-date">Completed: October 23, 2025</p>
+                <p class="cert-instructor">Successfully completed 10 learning modules</p>
+                <a href="Certificates/Academy.pdf" target="_blank" class="download-btn">📥 View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">💼</div>
+                <h3>Introduction to S/4HANA using Global Bike</h3>
+                <p class="cert-issuer">SAP University Alliances</p>
+                <p class="cert-date">February 2024 - June 2024</p>
+                <p class="cert-instructor">Successfully completed SD, MM, PP, FI, CO Modules at STI College</p>
+                <a href="Certificates/Sap.pdf" target="_blank" class="download-btn">📥 View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:ewards016@gmail.com">ewards016@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">📱</div>
+                <h3>Phone</h3>
+                <a href="tel:09623919135">09623919135</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">📍</div>
+                <h3>Location</h3>
+                <p>409 Villa Maria St. Sangandaan<br>Caloocan City</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shaun Ewards C. Dela Rosa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
